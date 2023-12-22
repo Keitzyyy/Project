@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Add CSS for the spinner here */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            display: none; /* Hidden by default */
+        }
+
+        /* Optional: Add styles to make the overlay visually appealing */
+        .loading-overlay h3 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </span>
+                        <input id="username" type="text" required>
+                        <label>Username:</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <input id="password" type="password" required>
+                        <label>Password:</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button class="btn" onclick="login()">Login</button>
+                    <div id="loading-overlay" class="loading-overlay">
+                        <div class="spinner"></div>
+                        <h3>Loading...</h3>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById('password').value;
+            var loadingOverlay = document.getElementById('loading-overlay');
+            var loadingSpinner = document.querySelector('.loading-overlay .spinner');
+
+            loadingOverlay.style.display = 'flex'; // Show the loading overlay
+
+            loadingSpinner.style.display = 'block';
+
+            // Dummy validation - Replace this with actual server-side validation
+            if (username === "crkconversion" && password === "123456") {
+                
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                    loadingOverlay.style.display = 'none'; 
+                }, 2000);
+            }
+           
+             else {
+                
+                loadingOverlay.style.display = 'none'; 
+            }
+            
+        }
+        
+    </script>
+
+
+    <style>
+
+        
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+        body{
+            
+            background-image: url( ../images/home.jpg);
+           
+            background-size: cover;
+           
+    
+    padding-top: 100px;
+            
+        }
+        .wrapper{
+            position: relative;
+            width: 400px;
+            height: 440px;
+            background: transparent;
+            border: 3px solid cyan;
+            border-radius: 30px;
+            background: -webkit-linear-gradient(#394ae225, #37ddb48a);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            display: flex;
+           
+            margin: 0 auto;
+         
+          
+        }
+        .wrapper .form-box{
+        width: 100%;
+        padding: 40px;
+        }
+        .form-box h2{
+            font-size: 2em;
+            color: White;
+            text-align: center;
+        }
+        .input-box{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-bottom: 2px solid cyan;
+            margin: 30px 0;
+        }
+        .input-box label{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+        }
+        .input-box input:focus~label,
+        .input-box input:valid~label{
+            top: -5px;
+        }
+        .input-box input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+           
+        }
+        .input-box .icon{
+            position: absolute;
+            right: 8px;
+            font-size: 1.2em;
+            color: white;
+            line-height: 57px;
+        }
+        .remember-forgot{
+            font-size: .9em;
+            color: white;
+            font-weight: 500;
+            margin: -15px 0 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .remember-forgot label input{
+            accent-color: green;
+            margin-right: 3px;
+        }
+        .remember-forgot a{
+            color: white;
+            text-decoration: none;
+        }
+        .remember-forgot a:hover{
+            text-decoration: underline;
+        }
+        .btn{
+            width: 100%;
+            height: 45px;  
+            border: 2px solid cyan;
+    background: -webkit-linear-gradient(#394ae225, #37ddb454);
+    border-radius: 10%;
+    color: white;
+    font-weight: 700;
+              }
+              .btn:hover{
+                background-color: rgb(33, 172, 165);
+    transform: scale(1.1);
+    transition: .4s;
+              }
+   
+    @media(max-width:360px){
+        .form-box{
+            width: 100%;
+            height: 100vh;
+        }
+    }
+    </style>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

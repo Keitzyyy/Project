@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRK CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <script  src="nsc.js"></script>
+    
+</head>
+<body>
+    <div class="container">        
+       <div class="calcbox"> 
+           <h1>•CRISTAL, KEITH, ROSEJEAN•</h1>   
+           <h2>Number System Conversion</h2>         
+           <p>Enter a number</p>         
+        <input type="text"  id="x" placeholder="Input" >
+        <p class="p1">From Base</p>
+        <select id="sel1"class="sel1">
+        <option value="2">2 (binary)</option>
+        <option value="8">8 (octal)</option>
+        <option value="10" selected>10 (decimal)</option>
+        <option value="16">16 (hex)</option>
+       
+        </select>
+        <p>To Base</p>
+        <select id="sel2"class="sel2">
+            <option value="2">2 (binary)</option>
+            <option value="8" selected>8 (octal)</option>
+            <option value="10" >10 (decimal)</option>
+            <option value="16">16 (hex)</option>
+           
+            </select>
+            <button class="button1"  type="button"  onclick="onconvert()">= Convert</button>
+            <button type="reset"  class="button2"   onclick="onrst()">&times; Reset</button>
+            <button class="button" type="button" onclick="swap()">&#8645; Swap</button>
+                
+        <br><p id="rrsult" ></p>
+        <textarea class="ta" rows="2" id="y" placeholder="Result"></textarea>
+        <button type="button" class="copy" onclick="copy()" >Copy</button>
+        <button type="text" class="logout" onclick="logout()">Log out</button>
+        <div id="logout-loading-overlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <h3>Logging out...</h3>
+      
+        
+       </div>          
+    </div>
+    <script src="sweetalert2.all.min.js"></script>
+</body>
+</html>
+
+</body>
+</html>
